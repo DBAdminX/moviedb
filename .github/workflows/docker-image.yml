@@ -58,17 +58,17 @@ jobs:
           gh repo clone DBAdminX/moviedb
           cd moviedb/deploy
           
-          sudo docker stop $(docker ps -aq) 2>/dev/null
+          sudo docker stop $(sudo docker ps -aq) 2>/dev/null
 
           
-          sudo docker rm $(docker ps -aq) 2>/dev/null
+          sudo docker rm $(sudo docker ps -aq) 2>/dev/null
 
           
-          sudo docker rmi -f $(docker images -aq) 2>/dev/null
+          sudo docker rmi -f $(sudo docker images -aq) 2>/dev/null
 
           
           sudo docker system prune -a -f --volumes
-          
+
           sudo docker compose up -d --build
           
 
