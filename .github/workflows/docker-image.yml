@@ -40,18 +40,18 @@ jobs:
 
     # 服务器部署
     - name: Execute remote commands via SSH
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.UCLOUD_HOST }}
-          username: ${{ secrets.UCLOUD_USER }}
-          password: ${{ secrets.UCLOUD_PASSWORD }}
-          port: ${{ secrets.SSH_PORT || 22 }}
-          script: |
-            echo "=== ENVIRONMENT ==="
-            whoami
-            pwd
-            ls -la
-            
-            echo "=== DEPLOY ACTIONS ==="
-            tldr pwd
+      uses: appleboy/ssh-action@v1
+      with:
+        host: ${{ secrets.UCLOUD_HOST }}
+        username: ${{ secrets.UCLOUD_USER }}
+        password: ${{ secrets.UCLOUD_PASSWORD }}
+        port: ${{ secrets.SSH_PORT || 22 }}
+        script: |
+          echo "=== ENVIRONMENT ==="
+          whoami
+          pwd
+          ls -la
+          
+          echo "=== DEPLOY ACTIONS ==="
+          tldr pwd
       
