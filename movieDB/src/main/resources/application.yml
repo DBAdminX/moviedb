@@ -18,14 +18,17 @@ spring:
       on-profile: dev
 
   # MongoDB 配置 (明文)
+  # data:
+  #   mongodb:
+  #     host: localhost
+  #     port: 27017
+  #     database: movie_db
+  #     username: root
+  #     password: rootpassword  # 明文密码，仅用于开发
+  #     authentication-database: admin
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: movie_db
-      username: root
-      password: rootpassword  # 明文密码，仅用于开发
-      authentication-database: admin
+      uri: mongodb://root:rootpassword@localhost:27017/movie_db?authSource=admin&directConnection=true&serverSelectionTimeoutMS=2000
 
 server:
   port: 8080
