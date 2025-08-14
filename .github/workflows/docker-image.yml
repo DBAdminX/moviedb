@@ -53,5 +53,22 @@ jobs:
           ls -la
           
           echo "=== DEPLOY ACTIONS ==="
-          tldr pwd
-      
+          cd ~
+          rm -rf moviedb
+          gh repo clone DBAdminX/moviedb
+          cd moviedb/deploy
+          
+          sudo docker stop $(docker ps -aq) 2>/dev/null
+
+          
+          sudo docker rm $(docker ps -aq) 2>/dev/null
+
+          
+          sudo docker rmi -f $(docker images -aq) 2>/dev/null
+
+          
+          sudo docker system prune -a -f --volumes
+          
+          sudo docker compose up -d --build
+          
+

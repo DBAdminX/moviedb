@@ -1,0 +1,29 @@
+services:
+  mongodb:
+    image: stupidfalcon/mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  backend:
+    image: stupidfalcon/moviedb-backend:latest
+    container_name: backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    restart: on-failure
+
+  frontend:
+    image: stupidfalcon/moviedb-frontend:latest
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: always
+
+volumes:
+  mongodb_data:
