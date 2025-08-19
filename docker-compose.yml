@@ -8,6 +8,8 @@ services:
       MONGO_INITDB_DATABASE: movie_db
     ports:
       - "27017:27017"
+    networks:
+      - app-network  # 加入自定义网络
     volumes:
       - mongodb_data:/data/db
       - ./mongo-init:/docker-entrypoint-initdb.d
@@ -22,6 +24,8 @@ services:
     depends_on:
       - mongodb
     restart: on-failure
+    networks:
+      - app-network  # 加入自定义网络
 
   frontend:
     build: ./movieView
@@ -33,6 +37,13 @@ services:
     depends_on:
       - backend
     restart: always
+    networks:
+      - app-network  # 加入自定义网络
 
 volumes:
   mongodb_data:
+
+# 定义共享网络
+networks:
+  app-network:
+    driver: bridge
