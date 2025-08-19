@@ -1,11 +1,16 @@
 services:
   mongodb:
-    image: stupidfalcon/mongo:latest
+    image: mongo:latest
     container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGO_INITDB_DATABASE: movie_db
     ports:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
+      - ../mongo-init:/docker-entrypoint-initdb.d
 
   backend:
     image: stupidfalcon/moviedb-backend:latest
