@@ -56,7 +56,7 @@ jobs:
           cd ~
           rm -rf moviedb
           gh repo clone DBAdminX/moviedb
-          cd moviedb/deploy
+          cd moviedb
           
           sudo docker stop $(sudo docker ps -aq) 2>/dev/null
 

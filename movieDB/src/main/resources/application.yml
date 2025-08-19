@@ -28,7 +28,7 @@ spring:
   #     authentication-database: admin
   data:
     mongodb:
-      uri: mongodb://root:rootpassword@localhost:27017/movie_db?authSource=admin&directConnection=true&serverSelectionTimeoutMS=20000
+      uri: mongodb://root:rootpassword@localhost:27017/movie_db?authSource=admin&directConnection=true&serverSelectionTimeoutMS=2000
 
 server:
   port: 8080
