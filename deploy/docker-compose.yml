@@ -18,7 +18,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATA_MONGODB_URI: mongodb://root:rootpassword@mongodb:27017/movie_db?authSource=admin
+      SPRING_DATA_MONGODB_URI: mongodb://appuser:apppassword@mongodb:27017/movie_db?authSource=admin
     depends_on:
       - mongodb
     restart: on-failure
