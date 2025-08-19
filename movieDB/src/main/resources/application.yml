@@ -20,12 +20,13 @@ spring:
   # MongoDB 配置 (明文)
   data:
     mongodb:
-      host: mongodb
-      port: 27017
-      database: movie_db
-      username: root
-      password: rootpassword  # 明文密码，仅用于开发
-      authentication-database: admin
+      # host: mongodb
+      # port: 27017
+      # database: movie_db
+      # username: root
+      # password: rootpassword  # 明文密码，仅用于开发
+      # authentication-database: admin
+      uri: ${SPRING_DATA_MONGODB_URI}
 server:
   port: 8080
   servlet:
