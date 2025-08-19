@@ -11,6 +11,12 @@ services:
     volumes:
       - mongodb_data:/data/db
       - ../mongo-init:/docker-entrypoint-initdb.d
+    healthcheck:  # Add healthcheck
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
   backend:
     image: stupidfalcon/moviedb-backend:latest
