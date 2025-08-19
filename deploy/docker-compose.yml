@@ -33,7 +33,7 @@ services:
     image: stupidfalcon/moviedb-frontend:latest
     container_name: frontend
     ports:
-      - "3000:3000"
+      - "443:3000"
     depends_on:
       - backend
     restart: always
