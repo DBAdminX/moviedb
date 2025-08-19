@@ -46,4 +46,3 @@ volumes:
 # 定义共享网络
 networks:
   app-network:
-    driver: bridge
